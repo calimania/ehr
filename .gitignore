@@ -1,0 +1,50 @@
+.DS_Store
+
+# Local files for FileSystemBinaryStorage
+binary/
+
+# Node/npm
+node_modules/
+
+# Dotenv
+.env
+
+.failed
+prettier-fmt.err
+prettier-fmt1.err
+
+# Output
+dist/
+
+# Storybook output
+storybook-static/
+
+# Chromatic
+packages/react/build-storybook.log
+
+# Jest code coverage
+coverage/
+
+# TypeScript incremental build
+tsconfig.tsbuildinfo
+
+# Server tarball
+medplum-server.tar.gz
+
+# Deb files
+*.deb
+
+# Turborepo
+.turbo
+
+# Rollup
+.rollup.cache/
+
+# All executables
+*.exe
+
+# All Java JAR files
+*.jar
+
+# All certificate files
+*.p12
