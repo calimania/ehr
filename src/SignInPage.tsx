@@ -1,8 +1,9 @@
 import { Title } from '@mantine/core';
-import { Logo, SignInForm, useMedplumProfile } from '@medplum/react';
+import { SignInForm, useMedplumProfile } from '@medplum/react';
 import { useCallback, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getConfig, isRegisterEnabled } from './config';
+import Logo from './components/Logo';
 
 export function SignInPage(): JSX.Element {
   const profile = useMedplumProfile();
@@ -33,7 +34,7 @@ export function SignInPage(): JSX.Element {
       projectId={searchParams.get('project') || undefined}
     >
       <Logo size={32} />
-      <Title>Sign in to Medplum</Title>
+      <Title>Sign in to Calima EHR</Title>
       {searchParams.get('project') === 'new' && <div>Sign in again to create a new project</div>}
     </SignInForm>
   );

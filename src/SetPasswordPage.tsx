@@ -4,7 +4,6 @@ import { OperationOutcome } from '@medplum/fhirtypes';
 import {
   Document,
   Form,
-  Logo,
   MedplumLink,
   OperationOutcomeAlert,
   getErrorsForInput,
@@ -13,6 +12,7 @@ import {
 } from '@medplum/react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Logo from './components/Logo';
 
 export function SetPasswordPage(): JSX.Element {
   const { id, secret } = useParams() as { id: string; secret: string };

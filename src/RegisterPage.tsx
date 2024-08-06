@@ -1,9 +1,10 @@
 import { Alert, Title } from '@mantine/core';
-import { Document, Logo, RegisterForm, useMedplum } from '@medplum/react';
+import { Document, RegisterForm, useMedplum } from '@medplum/react';
 import { IconAlertCircle } from '@tabler/icons-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getConfig, isRegisterEnabled } from './config';
+import Logo from './components/Logo';
 
 export function RegisterPage(): JSX.Element | null {
   const medplum = useMedplum();

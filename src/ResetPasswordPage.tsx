@@ -8,13 +8,13 @@ import {
   getIssuesForExpression,
   getRecaptcha,
   initRecaptcha,
-  Logo,
   OperationOutcomeAlert,
   useMedplum,
 } from '@medplum/react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getConfig } from './config';
+import Logo from './components/Logo';
 
 export function ResetPasswordPage(): JSX.Element {
   const navigate = useNavigate();

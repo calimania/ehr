@@ -1,8 +1,9 @@
 import { Title } from '@mantine/core';
 import { CodeChallengeMethod } from '@medplum/core';
-import { Logo, SignInForm } from '@medplum/react';
+import { SignInForm } from '@medplum/react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getConfig } from './config';
+import Logo from './components/Logo'
 
 export function OAuthPage(): JSX.Element | null {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export function OAuthPage(): JSX.Element | null {
       chooseScopes={scope !== 'openid'}
     >
       <Logo size={32} />
-      <Title>Sign in to Medplum</Title>
+      <Title>Sign in to Calima EHR</Title>
     </SignInForm>
   );
 }
