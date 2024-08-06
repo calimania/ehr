@@ -19,6 +19,7 @@ import {
 import { FunctionComponent, Suspense } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
+import Logo from './components/Logo';
 
 import './App.css';
 
@@ -28,15 +29,13 @@ export function App(): JSX.Element {
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
-  const Logo = '/static/img/calima-logo-512x512.png';
-
   if (medplum.isLoading()) {
     return <Loading />;
   }
 
   return (
     <AppShell
-      logo={<img src={Logo} width={24} title="Calima Logo" />}
+      logo={<Logo />}
       pathname={location.pathname}
       searchParams={searchParams}
       version={MEDPLUM_VERSION}
