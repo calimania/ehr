@@ -1,8 +1,8 @@
 # Calima EHR
 
-The following
+The following project is a medplum interface.
 
-Built following the guidance from the [medplum app package](https://github.com/calimania/medplum/tree/main/packages/app)
+![Sanar logo](./static/img/sanar.calima.png)
 
 Supports the [medplum api](https://api.medplum.com/), in the enterprise plans and self-hosted versions.
 
@@ -12,7 +12,7 @@ Using NEXTJS to offer API, bot and front end components and extensions.
 
 Released under (TSL). Full [./LICENSE] text.
 
-Explore some features in our demo version [ehr.calimania.org](https://ehr.calimania.org).
+Explore some features in our demo version [sanar.calimania.org](https://sanar.calimania.org).
 
 Contact our team for support, custom integrations and enterprise plans.
 
