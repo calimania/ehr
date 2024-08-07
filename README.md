@@ -10,7 +10,9 @@ Using NEXTJS to offer API, bot and front end components and extensions.
 
 ## Open source.
 
-Released under (TSL). Full [./LICENSE] text.
+Released under (TSL).
+
+Read [LICENSE](./LICENSE).
 
 Explore some features in our demo version [sanar.calimania.org](https://sanar.calimania.org).
 
