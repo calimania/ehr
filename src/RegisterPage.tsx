@@ -36,7 +36,8 @@ export function RegisterPage(): JSX.Element | null {
       recaptchaSiteKey={config.recaptchaSiteKey}
     >
       <Logo size={32} />
-      <Title>Create a new account</Title>
+      <Title order={1}>{config.appName}</Title>
+      <Title order={3}>Create a new account</Title>
     </RegisterForm>
   );
 }

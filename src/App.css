@@ -10,3 +10,41 @@ body,
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+a.Navbar_link {
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-gray-7);
+}
+
+a.Navbar_link svg {
+  margin-right: var(--mantine-spacing-sm);
+  stroke-width: 1.5;
+  width: 18px;
+  height: 18px;
+}
+
+.Header_logoButton:hover {
+  background-color: var(--mantine-color-blue-6);
+  border-radius: var(--mantine-radius-sm);
+}
+
+a.Navbar_link:hover {
+  background-color: var(--mantine-color-blue-6);
+  color: var(--mantine-color-white);
+  text-decoration: none;
+}
+
+a.Navbar_linkActive {
+  color: var(--mantine-color-blue-6);
+}
+
+.Panel_paper {
+  margin: var(--mantine-spacing-xl) auto;
+  padding: 1em;
+}
