@@ -1,34 +1,71 @@
-# Calima EHR
+# Calima Sanar EHR - Medplum Dashboard Fork
 
-The following project is a medplum interface.
+Welcome to the **Calima Sanar EHR** project!
 
-![Sanar logo](./static/img/sanar.calima.png)
+This repository is a **fork of the Medplum dashboard** that we've customized to make it even more adaptable, user-friendly, and ready to deploy on any cloud provider.
 
-Supports the [medplum api](https://api.medplum.com/), in the enterprise plans and self-hosted versions.
+## 🌟 Features
 
-Using Vite to create a static dashboard, for a quick look into medplum.
+- **Custom Branding**: Change logos and other visual elements to match your needs.
+- **Cloud Ready**: Easily deployable on any cloud provider.
+- **Extended Functionality**: Additional features and enhancements for seamless healthcare operations.
+- **Environment Config**: Connect effortlessly to your existing Medplum dashboard using the `.env` file.
 
-## Open source.
+We build with:
+- **Vite**
+- **Jest**
+- **Babel**
+- **Typescript**
+- **Mantine 7**
+- **Medplum 3**
 
-Released under (TSL).
+## ❤️ Open Source Interoperability
 
-Read [LICENSE](./LICENSE).
+At **Calima Sanar**, we believe in the power of **open source** and **interoperability**. We're passionate about creating a **healthtech ecosystem** that thrives on collaboration and innovation.
 
-Explore some features in our demo version [sanar.calimania.org](https://sanar.calimania.org).
+We love **Medplum** and all the work they've done to advance healthcare solutions. Our goal is to build tools that expand upon their great foundation to create a more connected, flexible, and powerful EHR solution.
 
-Contact our team for support, custom integrations and enterprise plans.
+## Links
 
-This project was forked from [medplum/app](https://app.medplum.com)
+> A curar a la curanderia
+
+[Kalima Health Homepage](https://kalima.health/)
+
+[Calima EHR](https://ehr.caliman.org)
+
+[Medplum Docs](https://www.medplum.com/docs)
+
+[HIPAA with Digital Ocean](https://www.digitalocean.com/trust/hipaa-at-do)
+
+[HIPAA Compliance with AWS](https://aws.amazon.com/compliance/hipaa-compliance/)
+
+# Medplum App
+
+This is the code for [https://app.medplum.com](https://app.medplum.com)
+
+## Deployment
+
+Medplum publishes the app package with placeholders for configuration settings. You can use the Medplum CLI to deploy the app, which will automatically replace the placeholders with your settings.
+
+For example:
+
+```bash
+# Deploy the latest version of the app to your Medplum AWS environment named "staging"
+medplum aws deploy-app staging
+```
 
 ## Config Settings
+
+When deploying from the Medplum CLI, config settings are loaded from the corresponding JSON config file.
 
 When building and running the app from source, config settings are loaded from environment variables or the `.env` file.
 
 | Name                       | Description                                                                                | Required |
 | -------------------------- | ------------------------------------------------------------------------------------------ | -------- |
 | `MEDPLUM_BASE_URL`         | The base URL of the API server for all API calls. For example, "https://api.medplum.com/". | yes      |
-| `CALIMA_BASE_URL`          | The base URL of the API server for all API calls. For example, "https://api.medplum.com/". | no       |
 | `MEDPLUM_CLIENT_ID`        | Optional Medplum client application ID.                                                    | no       |
+| `GOOGLE_CLIENT_ID`         | Optional Google client application ID for Google Auth.                                     | no       |
+| `RECAPTCHA_SITE_KEY`       | Optional reCAPTCHA site key for reCAPTCHA user verification.                               | no       |
 | `MEDPLUM_REGISTER_ENABLED` | Optional flag to enable or disable open registration for new projects.                     | no       |
 
 ## Developing
@@ -44,3 +81,9 @@ Production build:
 ```bash
 npm run build
 ```
+
+For more information, refer to the [Developer Instructions](https://www.medplum.com/docs/contributing/run-the-stack).
+
+# LICENSE
+
+Available under the [TSL](./LICENSE) license.
