@@ -119,7 +119,7 @@ function isNavOpen(): boolean {
 async function openNav(): Promise<void> {
   if (!isNavOpen()) {
     await act(async () => {
-      fireEvent.click(screen.getByTitle('Calima Logo'));
+      fireEvent.click(screen.getByTitle('Calima Sanar logo'));
     });
   }
 }
