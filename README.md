@@ -2,7 +2,21 @@
 
 Welcome to the **Calima Sanar EHR** project!
 
-This repository is a **fork of the Medplum dashboard** that we've customized to make it even more adaptable, user-friendly, and ready to deploy on any cloud provider.
+The following project is a medplum interface.
+
+![Sanar logo](./static/img/sanar.calima.png)
+
+Supports the [medplum api](https://api.medplum.com/), in the enterprise plans and self-hosted versions.
+
+Using Vite to create a static dashboard, for a quick look into medplum.
+
+## Open source.
+
+Released under (TSL).
+
+Read [LICENSE](./LICENSE).
+
+Explore some features in our demo version [sanar.calimania.org](https://sanar.calimania.org).
 
 ## 🌟 Features
 
