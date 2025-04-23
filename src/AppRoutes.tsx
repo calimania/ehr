@@ -6,6 +6,7 @@ import { CreateResourcePage } from './CreateResourcePage';
 import { ErrorPage } from './ErrorPage';
 import { FormPage } from './FormPage';
 import { HomePage } from './HomePage';
+import { LandingPage } from './LandingPage';
 import { MfaPage } from './MfaPage';
 import { OAuthPage } from './OAuthPage';
 import { RegisterPage } from './RegisterPage';
@@ -123,7 +124,7 @@ export function AppRoutes(): JSX.Element {
           <Route path="profiles" element={<ProfilesPage />} />
         </Route>
         <Route path="/:resourceType" element={<HomePage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<LandingPage />} />
       </Route>
     </Routes>
   );
