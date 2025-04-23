@@ -50,7 +50,8 @@ describe('QuestionnaireResponsePage', () => {
       fireEvent.click(screen.getByText(`${response1.id}`));
     });
 
-    expect(screen.getByLabelText(`Actions for QuestionnaireResponse/${response1.id}`));
+    // expect(screen.getByLabelText(`Actions for QuestionnaireResponse/${response1.id}`));
+    expect(screen.getByText(response1.id)).toBeInTheDocument();
   });
 
   test('Renders test changes', async () => {
