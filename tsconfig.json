@@ -5,7 +5,9 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "lib": [
-      "ESNext"
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
