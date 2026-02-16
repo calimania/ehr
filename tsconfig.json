@@ -35,6 +35,9 @@
     "node_modules",
     "**/node_modules",
     "**/dist",
-    "packages/docs/build"
+    "packages/docs/build",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**"
   ]
 }
