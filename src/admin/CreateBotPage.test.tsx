@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { MockClient } from '@medplum/mock';
 import { MedplumProvider } from '@medplum/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { AppRoutes } from '../AppRoutes';
 import { act, fireEvent, render, screen } from '../test-utils/render';
 
@@ -81,7 +83,7 @@ describe('CreateBotPage', () => {
       });
     });
 
-    const input = screen.getByPlaceholderText('Access Policy') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('Access Policy');
 
     // Enter "Example Access Policy"
     await act(async () => {

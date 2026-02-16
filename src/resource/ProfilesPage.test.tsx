@@ -1,12 +1,14 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { loadDataType } from '@medplum/core';
-import { Patient, StructureDefinition } from '@medplum/fhirtypes';
+import type { Patient, StructureDefinition } from '@medplum/fhirtypes';
 import { FishPatientResources, MockClient } from '@medplum/mock';
 import { ErrorBoundary, Loading, MedplumProvider } from '@medplum/react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Suspense } from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { AppRoutes } from '../AppRoutes';
 
 const medplum = new MockClient();
@@ -24,7 +26,7 @@ describe('ProfilesPage', () => {
       if (loadedProfileUrls.includes(profileUrl)) {
         return Promise.resolve();
       } else {
-        return Promise.reject(new Error('unexpected profileUrl'));
+        throw new Error('unexpected profileUrl');
       }
     });
   });
@@ -77,7 +79,7 @@ describe('ProfilesPage', () => {
 
     expect(screen.getByText('Success')).toBeInTheDocument();
 
-    const updatedPatient = await medplum.readResource('Patient', patient.id as string);
+    const updatedPatient = await medplum.readResource('Patient', patient.id);
     expect(updatedPatient.meta?.profile?.includes(fishPatientProfile.url)).toEqual(true);
   });
 
@@ -102,9 +104,7 @@ describe('ProfilesPage', () => {
       fireEvent.click(screen.getByRole('button', { name: 'OK' }));
     });
 
-    const updatedPatient = await medplum.readResource('Patient', patient.id as string);
-    console.log({ id: updatedPatient?.id })
-    // @TODO: reenable
-    // expect(updatedPatient.meta?.profile?.includes(fishPatientProfile.url)).toEqual(false);
+    const updatedPatient = await medplum.readResource('Patient', patient.id);
+    expect(updatedPatient.meta?.profile).toEqual(undefined);
   });
 });

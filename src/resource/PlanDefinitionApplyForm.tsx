@@ -1,6 +1,9 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { Button, Group, Stack, Text, Title } from '@mantine/core';
-import { PlanDefinition, Reference, RequestGroup } from '@medplum/fhirtypes';
+import type { PlanDefinition, Reference, RequestGroup } from '@medplum/fhirtypes';
 import { CodeableConceptDisplay, Form, FormSection, MedplumLink, ReferenceInput, useMedplum } from '@medplum/react';
+import type { JSX } from 'react';
 import { useState } from 'react';
 
 export interface PlanDefinitionApplyFormProps {
@@ -35,7 +38,7 @@ export function PlanDefinitionApplyForm(props: PlanDefinitionApplyFormProps): JS
     <Form
       onSubmit={() => {
         medplum
-          .post(medplum.fhirUrl('PlanDefinition', props.planDefinition.id as string, '$apply'), {
+          .post<RequestGroup>(medplum.fhirUrl('PlanDefinition', props.planDefinition.id as string, '$apply'), {
             resourceType: 'Parameters',
             parameter: [
               {

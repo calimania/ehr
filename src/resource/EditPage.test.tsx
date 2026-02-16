@@ -1,10 +1,12 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { Practitioner } from '@medplum/fhirtypes';
+import type { Practitioner } from '@medplum/fhirtypes';
 import { MockClient } from '@medplum/mock';
 import { ErrorBoundary, Loading, MedplumProvider } from '@medplum/react';
 import { Suspense } from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { AppRoutes } from '../AppRoutes';
 import { act, fireEvent, render, screen } from '../test-utils/render';
 
@@ -69,5 +71,23 @@ describe('EditPage', () => {
     });
 
     expect(await screen.findByText('Are you sure you want to delete this Practitioner?')).toBeInTheDocument();
+  });
+
+  test('Patch button on edit page', async () => {
+    await setup('/Practitioner/123/edit');
+
+    const moreActions = screen.getByLabelText('More actions');
+    expect(moreActions).toBeDefined();
+    await act(async () => {
+      fireEvent.click(moreActions);
+    });
+
+    const patchButton = await screen.findByText('Patch');
+    expect(patchButton).toBeInTheDocument();
+    await act(async () => {
+      fireEvent.click(patchButton);
+    });
+
+    expect(screen.getByText('Success')).toBeInTheDocument();
   });
 });

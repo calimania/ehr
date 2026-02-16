@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { MockClient } from '@medplum/mock';
 import { MedplumProvider } from '@medplum/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { AppRoutes } from '../AppRoutes';
 import { act, fireEvent, render, screen } from '../test-utils/render';
 
@@ -66,7 +68,7 @@ describe('EditMembershipPage', () => {
     await setup('/admin/members/456');
     expect(await screen.findByText('Save')).toBeInTheDocument();
 
-    const input = screen.getByPlaceholderText('Access Policy') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('Access Policy');
 
     // Enter "Example Access Policy"
     await act(async () => {
@@ -99,7 +101,7 @@ describe('EditMembershipPage', () => {
     await setup('/admin/members/456');
     expect(await screen.findByText('Save')).toBeInTheDocument();
 
-    const input = screen.getByPlaceholderText('User Configuration') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('User Configuration');
 
     // Enter "Example Access Policy"
     await act(async () => {
@@ -134,7 +136,7 @@ describe('EditMembershipPage', () => {
     await setup('/admin/members/456');
     expect(await screen.findByText('Save')).toBeInTheDocument();
 
-    const input = screen.getByLabelText('Admin') as HTMLInputElement;
+    const input = screen.getByLabelText('Admin');
 
     await act(async () => {
       fireEvent.click(input);
@@ -160,7 +162,7 @@ describe('EditMembershipPage', () => {
     await setup('/admin/members/456');
     expect(await screen.findByText('Save')).toBeInTheDocument();
 
-    const input = screen.getByLabelText('Admin') as HTMLInputElement;
+    const input = screen.getByLabelText('Admin');
 
     // Click once to set admin
     await act(async () => {

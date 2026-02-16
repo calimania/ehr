@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 export interface MedplumAppConfig {
   baseUrl?: string;
   clientId?: string;
@@ -5,7 +7,6 @@ export interface MedplumAppConfig {
   recaptchaSiteKey?: string;
   registerEnabled?: boolean | string;
   awsTextractEnabled?: boolean | string;
-  appName?: string;
 }
 
 const config: MedplumAppConfig = {
@@ -15,7 +16,6 @@ const config: MedplumAppConfig = {
   recaptchaSiteKey: import.meta.env?.RECAPTCHA_SITE_KEY,
   registerEnabled: import.meta.env?.MEDPLUM_REGISTER_ENABLED,
   awsTextractEnabled: import.meta.env?.MEDPLUM_AWS_TEXTRACT_ENABLED,
-  appName: import.meta.env?.APP_NAME || 'Calima EHR',
 };
 
 export function getConfig(): MedplumAppConfig {

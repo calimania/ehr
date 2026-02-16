@@ -1,9 +1,11 @@
+// SPDX-FileCopyrightText: Copyright Orangebot, Inc. and Medplum contributors
+// SPDX-License-Identifier: Apache-2.0
 import { Title } from '@mantine/core';
-import { SignInForm, useMedplumProfile } from '@medplum/react';
+import { getAppName, Logo, SignInForm, useMedplumProfile } from '@medplum/react';
+import type { JSX } from 'react';
 import { useCallback, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router';
 import { getConfig, isRegisterEnabled } from './config';
-import Logo from './components/Logo';
 
 export function SignInPage(): JSX.Element {
   const profile = useMedplumProfile();
@@ -15,7 +17,7 @@ export function SignInPage(): JSX.Element {
     // only redirect to next if it is a pathname to avoid redirecting
     // to a maliciously crafted URL, e.g. /signin?next=https%3A%2F%2Fevil.com
     const nextUrl = searchParams.get('next');
-    navigate(nextUrl?.startsWith('/') ? nextUrl : '/');
+    navigate(nextUrl?.startsWith('/') ? nextUrl : '/')?.catch(console.error);
   }, [searchParams, navigate]);
 
   useEffect(() => {
@@ -27,15 +29,23 @@ export function SignInPage(): JSX.Element {
   return (
     <SignInForm
       onSuccess={() => navigateToNext()}
-      onForgotPassword={() => navigate('/resetpassword')}
-      onRegister={isRegisterEnabled() ? () => navigate('/register') : undefined}
+      onForgotPassword={() => navigate('/resetpassword')?.catch(console.error)}
+      onRegister={isRegisterEnabled() ? () => navigate('/register')?.catch(console.error) : undefined}
       googleClientId={config.googleClientId}
       login={searchParams.get('login') || undefined}
       projectId={searchParams.get('project') || undefined}
     >
       <Logo size={32} />
-      <Title>Sign in to {config.appName}</Title>
-      {searchParams.get('project') === 'new' && <div>Sign in again to create a new project</div>}
+      {searchParams.get('project') !== 'new' && (
+        <Title order={3} py="lg" ta="center">
+          Sign in to {getAppName()}
+        </Title>
+      )}
+      {searchParams.get('project') === 'new' && (
+        <Title order={3} py="lg" ta="center">
+          Sign in again to create a new project
+        </Title>
+      )}
     </SignInForm>
   );
 }
